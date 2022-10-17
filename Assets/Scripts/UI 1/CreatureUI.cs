@@ -32,8 +32,6 @@ public class CreatureUI : MonoBehaviour
         this.dynStatList.GetNextItemAndActivate<SingleStatUI>().Configure("Atk", stats.attack);
         this.dynStatList.GetNextItemAndActivate<SingleStatUI>().Configure("Def", stats.defense);
         this.dynStatList.GetNextItemAndActivate<SingleStatUI>().Configure("Spd", stats.speed);
-        this.dynStatList.GetNextItemAndActivate<SingleStatUI>().Configure("EAtk", stats.elemAttack);
-        this.dynStatList.GetNextItemAndActivate<SingleStatUI>().Configure("EAtk", stats.elemDefense);
     }
 
     public void DisplayEnergy(int energy)
