@@ -68,7 +68,7 @@ public class MapManager : MonoBehaviour
                     case '.':
                         flatTilesData.Add(TileType.GROUND);
                         break;
-                    case '$':
+                    case '&':
                         flatTilesData.Add(TileType.WATER);
                         break;
                     case 'H':
@@ -152,11 +152,12 @@ public class MapManager : MonoBehaviour
         var local = this.WorldToLocal(worldPoint);
         return this.map.GetTileType(local.x, local.y) == TileType.GROUND;
     }
-    public bool IsAWaterTile(Vector3 worldPoint)
+    public bool IsWaterTile(Vector3 worldPoint)
     {
         var local = this.WorldToLocal(worldPoint);
         return this.map.GetTileType(local.x, local.y) == TileType.WATER;
     }
+
 
     public Vector3 SnapToTile(Vector3 worldPoint)
     {

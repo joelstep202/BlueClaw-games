@@ -43,6 +43,12 @@ public class HumanMaster : Master
             this.selectedCreature.SetSelectionStatus(true);
 
             CreatureUI.current.Show();
+            CreatureUI.current.DisplayStats(this.selectedCreature.GetCurrentStats());
+
+            if (GameManager.current.IsOwnerOnTurn(this.selectedCreature))
+            {
+                this.ConfigureSkillButtons();
+            }
         }
     }
 
@@ -88,6 +94,18 @@ public class HumanMaster : Master
                 GameManager.current.TryToPerformSkill(this.selectedCreature, posibleTarget, this.selectedSkill);
                 this.GoToMoveMode();
                 break;
+        }
+    }
+
+    protected void ConfigureSkillButtons()
+    {
+        Skill[] skills = this.selectedCreature.GetSkills();
+
+        CreatureUI.current.AddSkillButtton("Move", () => this.GoToMoveMode());
+
+        foreach (var skill in skills)
+        {
+            CreatureUI.current.AddSkillButtton(skill.skillName, () => this.GoToSkillMode(skill));
         }
     }
 

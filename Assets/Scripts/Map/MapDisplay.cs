@@ -64,12 +64,7 @@ public class MapDisplay : MonoBehaviour
         {
             Vector3 world = this.gameCamera.ScreenToWorldPoint(Input.mousePosition);
 
-            if (GameManager.current.mapManager.IsAGroundTile(world))
-            {
-                this.cursor.gameObject.SetActive(true);
-                this.cursor.position = GameManager.current.mapManager.SnapToTile(world);
-            }
-            if (GameManager.current.mapManager.IsAWaterTile(world))
+            if (GameManager.current.mapManager.IsAGroundTile(world) || GameManager.current.mapManager.IsWaterTile(world))
             {
                 this.cursor.gameObject.SetActive(true);
                 this.cursor.position = GameManager.current.mapManager.SnapToTile(world);

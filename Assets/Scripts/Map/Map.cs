@@ -3,7 +3,7 @@ public enum TileType
 {
     WALL,
     GROUND,
-    WATER
+    WATER,
 }
 
 public class Map
